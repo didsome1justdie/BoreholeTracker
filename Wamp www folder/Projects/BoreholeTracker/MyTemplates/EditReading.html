@@ -1,0 +1,109 @@
+<div class="pagename">
+<h5>Edit Reading Page</h5>
+</div>
+<center>
+<a href="#/addreading"><button class="btn btn-info">Add Reading</button></a>
+<a href="#/deletereading"><button class="btn btn-danger">Delete Reading</button></a>
+<a href="#/view"><button class="btn btn-primary">View Boreholes</button></a>
+</center>
+<br>
+<center>
+Select a borehole to see its details and start editing
+<br>
+You can enter search criteria below to filter your list
+<br>
+<select ng-change="btnshow(selectedborehole)" ng-model="selectedborehole" ng-options="('ID: ' + borehole.BoreholeID + ', Name: ' + borehole.BoreholeName) for borehole in editBoreholeList | filter:searchtext1 | orderBy : 'BoreholeName'">
+    <option value="">Select borehole</option>
+</select>
+<input type="text" name="search" ng-model="searchtext1">
+<br><br>
+<button ng-click="getreadings(selectedborehole)" class="btn btn-warning">Get Readings</button>
+<br><br>
+<p>then</p>
+<select ng-change="btnshow(selectedreading)" ng-model="selectedreading" ng-options="('BHole ID: ' + reading.BoreholeID + ', Read ID: ' + reading.ReadingID) for reading in editReadingList | filter:searchtext2">
+        <option value="">Select reading</option>
+</select>
+<input type="text" name="search" ng-model="searchtext2">
+<br>
+<br>
+<table class="orderstable">
+    <th class="orderstable">Column Name</th>
+    <th class="orderstable">Value</th>
+	<tr class="orderstable">
+		<td class="orderstable">Borehole ID</td>
+		<td class="orderstable"><input type="text" id="borid" value="{{selectedreading.BoreholeID}}" required readonly="readonly"/></td>
+	</tr>
+	<tr class="orderstable">
+		<td class="orderstable">Reading ID</td>
+		<td class="orderstable"><input type="text" id="readid" value="{{selectedreading.ReadingID}}" required readonly="readonly"/></td>
+	</tr>
+	<tr class="orderstable">
+		<td class="orderstable">Reading Date</td>
+		<td class="orderstable"><input type="date" id="readdate" value="{{selectedreading.ReadingDate}}" required/></td>
+    </tr>
+    <tr class="orderstable">
+		<td class="orderstable">Reading</td>
+		<td class="orderstable"><input type="text" id="reading" value="{{selectedreading.WaterReading}}" required/></td>
+    </tr>
+    <tr class="orderstable">
+		<td class="orderstable"></td>
+		<td class="orderstable"><button ng-click="editreading(selectedreading)" class="btn btn-warning">Edit Reading</button></td>
+	</tr>
+</table>
+<br>
+{{msg}}
+</center>
+<!-- 
+    <br>
+    <div class="container-fluid" ng-show="showorderitems">
+        <center>You can enter search criteria below to filter your lists
+            <br>
+            <input type="text" name="search" ng-model="searchtext1">
+            <br>
+        </center>
+        <div class="row" style="overflow:hidden; height:95vh;">
+            <div class="col-xs-8 x">
+                In Order
+                <table class="orderstable">
+                    <tr class="orderstable">
+                        <th class="orderstable">Code</th>
+                        <th class="orderstable">Name</th>
+                        <th class="orderstable">Price</th>
+                        <th class="orderstable">Quantity</th>
+                        <th class="orderstable">Total</th>
+                        <th  class="orderstable">Action</th>
+                    </tr>
+                    <tr ng-repeat="product in sOrderProducts | filter:searchtext1 | filter:{inOrder:true}"  class="orderstable">
+                        <td class="orderstable">{{product.productCode}}</td>
+                        <td class="orderstable">{{product.productName}}</td>
+                        <td class="orderstable">{{product.productPrice}}</td>
+                        <td class="orderstable"><input type="number" min="1" ng-change="addtoGT(product)" ng-init="product.productQuantity" ng-model="product.productQuantity"/></td>
+                        <td class="orderstable">{{product.totPrice}}</td>
+                        <td class="orderstable"><button ng-click="removefromorder(product)" class="btn btn-danger">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td class="orderstable" colspan="4" style="text-align:right;">Grand Total</td>
+                        <td class="orderstable">{{GT}}</td>
+                        <td class="orderstable"><button ng-click="confirmProducts()" class="btn btn-success">Confirm</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xs-4 x">
+                All Products
+                <table class="orderstable">
+                        <tr class="orderstable">
+                            <th class="orderstable">Code</th>
+                            <th class="orderstable">Name</th>
+                            <th  class="orderstable">Action</th>
+                        </tr>
+                        <tr ng-repeat="product in sOrderProducts | filter:searchtext1 | filter:{inOrder:false}"  class="orderstable">
+                            <td class="orderstable">{{product.productCode}}</td>
+                            <td class="orderstable">{{product.productName}}</td>
+                            <td class="orderstable"><button ng-click="addtoorder(product)" class="btn btn-success">Add</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->

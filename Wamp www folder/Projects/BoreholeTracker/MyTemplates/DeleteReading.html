@@ -1,0 +1,35 @@
+<div class="pagename">
+<h5>Delete Reading Page</h5>
+</div>
+<center>
+<a href="#/addreading"><button class="btn btn-info">Add Reading</button></a>
+<a href="#/editreading"><button class="btn btn-warning">Edit Reading</button></a>
+<a href="#/view"><button class="btn btn-primary">View Boreholes</button></a>
+</center>
+<center>
+<br>
+You can enter search criteria below to filter your list
+<br>
+<input type="text" name="search" ng-model="searchtext">
+<br>
+<br>
+Select a reading to delete
+<br><br>
+<select ng-model="selectedreading" ng-options="('Borehole ID: ' + reading.BoreholeID + ', Reading ID: ' + reading.ReadingID) for reading in deleteReadingList |filter:searchtext| orderBy : 'BoreholeID'">
+    <option value="">Select reading</option>
+</select>
+<br><br>
+<button ng-click="deletereading(selectedreading)" class="btn btn-danger">Delete Reading</button>
+<br>
+<br>
+{{msg}}
+<br>
+<br>
+Select a borehole to reinstate
+<br><br>
+<select ng-model="selectedInactiveReading" ng-options="('Borehole ID: ' + read.BoreholeID + ', Reading ID: ' + read.ReadingID) for read in reinstateReadingList|filter:searchtext| orderBy : 'BoreholeID'">
+    <option value="">Select reading</option>
+</select>
+<br><br>
+<button ng-click="reinstatereading(selectedInactiveReading)" class="btn btn-success">Reinstate Reading</button>
+</center>

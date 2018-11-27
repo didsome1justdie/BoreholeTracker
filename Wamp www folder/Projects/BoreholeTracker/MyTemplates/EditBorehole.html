@@ -1,0 +1,57 @@
+<div class="pagename">
+<h5>Edit Borehole Page</h5>
+</div>
+<center>
+<a href="#/addborehole"><button class="btn btn-info">Add Borehole</button></a>
+<a href="#/deleteborehole"><button class="btn btn-danger">Delete Borehole</button></a>
+<a href="#/view"><button class="btn btn-primary">View Boreholes</button></a>
+</center>
+<br>
+<center>
+Select a borehole to see its details and start editing
+<br>
+You can enter search criteria below to filter your list
+<br>
+<select ng-model="selectedborehole" ng-options="('ID: ' + borehole.BoreholeID + ', Name: ' + borehole.BoreholeName) for borehole in editBoreholeList |filter:searchtext| orderBy : 'BoreholeName'">
+    <option value="">Select borehole</option>
+</select>
+<input type="text" name="search" ng-model="searchtext">
+<br><br>
+<table class="orderstable">
+    <th class="orderstable">Column Name</th>
+    <th class="orderstable">Value</th>
+	<tr class="orderstable">
+		<td class="orderstable">Borehole ID</td>
+		<td class="orderstable"><input type="text" id="borid" value="{{selectedborehole.BoreholeID}}" required readonly="readonly"/></td>
+	</tr>
+	<tr class="orderstable">
+		<td class="orderstable">Borehole Name</td>
+		<td class="orderstable"><input type="text" id="bornam" value="{{selectedborehole.BoreholeName}}" required/></td>
+	</tr>
+	<tr class="orderstable">
+		<td class="orderstable">Borehole Type</td>
+		<td class="orderstable"><input type="text" id="bortyp" value="{{selectedborehole.BoreholeType}}" required/></td>
+    </tr>
+    <tr class="orderstable">
+    <td class="orderstable" colspan="2">Borehole Location</td>
+    </tr>
+	<tr class="orderstable">
+		<td class="orderstable">Latitude</td>
+		<td class="orderstable"><input type="text" id="borlat" value="{{selectedborehole.Latitude}}" required/></td>
+    </tr>
+    <tr class="orderstable">
+		<td class="orderstable">Longitude</td>
+		<td class="orderstable"><input type="text" id="borlng" value="{{selectedborehole.Longitude}}" required/></td>
+    </tr>
+    <tr class="orderstable">
+		<td class="orderstable">Elevation</td>
+		<td class="orderstable"><input type="number" id="borele" value="{{selectedborehole.Elevation}}" required/></td>
+    </tr>
+	<tr class="orderstable">
+		<td class="orderstable"></td>
+		<td class="orderstable"><button ng-click="editborehole(selectedborehole)" class="btn btn-warning">Edit Borehole</button></td>
+	</tr>
+</table>
+<br>
+{{msg}}
+</center>

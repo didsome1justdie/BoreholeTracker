@@ -1,0 +1,35 @@
+<div class="pagename">
+<h5>Delete Borehole Page</h5>
+</div>
+<center>
+<a href="#/addborehole"><button class="btn btn-info">Add Borehole</button></a>
+<a href="#/editborehole"><button class="btn btn-warning">Edit Borehole</button></a>
+<a href="#/view"><button class="btn btn-primary">View Boreholes</button></a>
+</center>
+<center>
+<br>
+You can enter search criteria below to filter your list
+<br>
+<input type="text" name="search" ng-model="searchtext">
+<br>
+<br>
+Select a borehole to delete
+<br><br>
+<select ng-model="selectedborehole" ng-options="('ID: ' + borehole.BoreholeID + ', Name: ' + borehole.BoreholeName) for borehole in deleteBoreholeList |filter:searchtext| orderBy : 'BoreholeName'">
+    <option value="">Select borehole</option>
+</select>
+<br><br>
+<button ng-click="deleteborehole(selectedborehole)" class="btn btn-danger">Delete Borehole</button>
+<br>
+<br>
+{{msg}}
+<br>
+<br>
+Select a borehole to reinstate
+<br><br>
+<select ng-model="selectedInactiveBorehole" ng-options="('ID: ' + bhole.BoreholeID + ', Name: ' + bhole.BoreholeName) for bhole in reinstateBoreholeList |filter:searchtext| orderBy : 'BoreholeName'">
+    <option value="">Select borehole</option>
+</select>
+<br><br>
+<button ng-click="reinstateborehole(selectedInactiveBorehole)" class="btn btn-success">Reinstate Borehole</button>
+</center>

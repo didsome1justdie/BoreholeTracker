@@ -1,0 +1,88 @@
+<div class="pagename">
+<h5>Add Borehole Page</h5>
+</div>
+<center>
+<a href="#/editborehole"><button class="btn btn-warning">Edit Borehole</button></a>
+<a href="#/deleteborehole"><button class="btn btn-danger">Delete Borehole</button></a>
+<a href="#/view"><button class="btn btn-primary">View Boreholes</button></a>
+</center>
+<br>
+
+<center>Enter details below to create a new order</center>
+<br>
+<center>
+	<table>
+		<th class="orderstable">Column Name</th>
+		<th class="orderstable">Value</th>
+		<tr class="orderstable">
+		<td class="orderstable">Borehole Name</td>
+		<td class="orderstable"><input type="text" ng-model="bornam" placeholder="Borehole Identifier" required/></td>
+		</tr>
+		<tr class="orderstable">
+		<td class="orderstable">Borehole Type</td>
+		<td class="orderstable"><input type="text" ng-model="bortyp" placeholder="Borehole Type" required/></td>
+		</tr>	
+        <th class="orderstable" colspan="2">Borehole Location</th>
+        <tr class="orderstable">
+		<td class="orderstable">Latitude</td>
+		<td class="orderstable"><input type="text" ng-model="borlat" placeholder="Latitude(00,000000)" required/></td>
+        </tr>
+        <tr class="orderstable">
+        <td class="orderstable">Longitude</td>
+        <td class="orderstable"><input type="text" ng-model="borlng" placeholder="Longitude(00,000000)" required/></td>
+        </tr>
+        <tr class="orderstable">
+        <td class="orderstable">Elevation(m)</td>
+        <td class="orderstable"><input type="number" ng-model="borele" placeholder="Elevation(m)" required/></td>
+        </tr>
+		<tr class="orderstable">
+		<td class="orderstable"></td>
+		<td class="orderstable"><button ng-click="addnewborehole()" class="btn btn-primary">Add Borehole</button></td>
+		</tr>
+	</table>
+<br>
+{{msg}}
+</center>
+<!--<div class="container-fluid">
+    <div class="row" style="overflow:hidden; height:95vh;">
+        <div class="col-xs-4 x" style="background-color:rgb(78, 172, 226) !important;">
+            <div class="sidebarright" style="height:95vh;">
+                <div class="pagename">
+                    <h4>Cart</h4>
+                </div>
+                <table class="orderstable">
+                    <tr class="orderstable">
+                        <th class="orderstable">Product Name</th>
+                        <th class="orderstable">Product Price</th>
+                        <th  class="orderstable">Action</th>
+                    </tr>
+                    <tr ng-repeat="product in sOrderProducts | filter:{inCart:true}"  class="orderstable">
+                        <td class="orderstable">{{product.productName}}</td>
+                        <td class="orderstable">{{product.productPrice}}</td>
+                        <td class="orderstable"><button ng-click="removefromcart(product)" class="btn btn-danger">Remove</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-8 x" >
+            <div class="row" style="height:95vh;">
+                <div class="col-xs-12">
+                    <center>Enter Search criteria below to filter your list</center>
+                    <center><input type="text" name="search" ng-model="searchtext"></center>
+                </div>
+
+                <div class="col-xs-3" ng-repeat="product in sOrderProducts | filter:searchtext | filter:{inCart:false}"> 
+                    <div class="card" style="border: 1px solid black;">
+                        <center><img class="card-img-top" ng-click="viewdetails(product)" style=" height:200px; width:100%; object-fit:scale-down;" src="Images/{{product.productCode}}.jpg" alt="{{product.productCode}}"></center>
+                        <div class="card-body">
+                            <center><h5 class="card-title" style="height:40px;">{{product.productName}}</h5></center>
+                            <center><button ng-click="addtocart(product)" style="width:100%; object-fit:contain;" class="btn btn-primary">Add to Cart</button></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>-->

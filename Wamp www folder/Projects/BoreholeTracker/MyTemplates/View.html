@@ -1,0 +1,54 @@
+<div class="pagename">
+<h5>View Boreholes Page</h5>
+</div>
+<center>
+<a href="#/addborehole"><button class="btn btn-info">Add Borehole</button></a>
+<a href="#/editborehole"><button class="btn btn-warning">Edit Borehole</button></a>
+<a href="#/deleteborehole"><button class="btn btn-danger">Delete Borehole</button></a>
+</center>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<center>Enter Search criteria below to filter your list</center>
+			<center><input type="text" name="search" ng-model="searchtext"></center>
+		</div>
+
+		<div class="col-xs-7">
+			Borehole Details
+			<table class="orderstable">
+				<th class="orderstable">Borehole ID</th>
+				<th class="orderstable">Borehole Name</th>
+				<th class="orderstable">Borehole Type</th>
+				<th class="orderstable">Latitude</th>
+				<th class="orderstable">Longitude</th>
+				<th class="orderstable">Elevation</th>
+				<th class="orderstable">Action</th>
+				<tr class="orderstable" ng-repeat="borehole in showBoreholeList | filter:searchtext | orderBy : 'BoreholeName' : false">
+				<td class="orderstable">{{borehole.BoreholeID}}</td>
+				<td class="orderstable">{{borehole.BoreholeName}}</td>
+				<td class="orderstable">{{borehole.BoreholeType}}</td>
+				<td class="orderstable">{{borehole.Latitude}}</td>
+				<td class="orderstable">{{borehole.Longitude}}</td>
+				<td class="orderstable">{{borehole.Elevation}}</td>
+				<td class="orderstable"><button ng-click="showData2(borehole)" style="font-size: 10px;" class="btn btn-primary">Select</button></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div class="col-xs-5">
+			Meter Readings
+			<table class="orderstable">
+				<th class="orderstable">Borehole ID</th>
+				<th class="orderstable">Reading ID</th>
+				<th class="orderstable">Reading Date</th>
+				<th class="orderstable">Reading</th>
+				<tr class="orderstable" ng-repeat="reading in showReadingList">
+				<td class="orderstable">{{reading.BoreholeID}}</td>
+				<td class="orderstable">{{reading.ReadingID}}</td>
+				<td class="orderstable">{{reading.ReadingDate}}</td>
+				<td class="orderstable">{{reading.WaterReading}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
